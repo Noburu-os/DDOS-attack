@@ -7,13 +7,11 @@
   time.sleep(3)
   # Parse inputs
   host = ""
-  #twitch API-
-  ip = "127.0.0.1"
+  ip = ""
   print('[#]connected to ' + str(ip))
   time.sleep(3)
-  #ip = '99.181.101.248'
   port = 80
-  num_requests = 10000000000000000000000000
+  num_requests = 1000000
   
   if len(sys.argv) == 2:
       port = 80
@@ -26,7 +24,7 @@
       num_requests = int(sys.argv[3])
   else:
       print (f"ERROR\n Usage: {sys.argv[0]} < Hostname > < Port > < what_server_connection >")
-      #sys.exit(1)
+      sys.exit(1)
   
   # Convert FQDN to IP
   try:
@@ -34,7 +32,7 @@
       ip = socket.gethostbyname(host)
   except socket.gaierror:
       print ("Make sure you entered a correct website, or server ip")
-      #sys.exit(2)
+      sys.exit(2)
   
   # Create a shared variable for thread counts
   thread_num = 0
